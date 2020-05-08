@@ -10,7 +10,8 @@ app.use((req, res, next) => {
 })
 
 app.use((req, res, next) => {
-  console.log('inside another middlleware')
+  console.log('inside another middlleware');
+  res.send('<h1>HEllo from express</h1>')
 })
 
 const server = http.createServer(app);
