@@ -10,7 +10,10 @@ app.use('/add-user', (req, res, next) => {
   res.send('<form action="/users" method="POST"><input type="text" name="userName"/><button>Add user</button></form>')
 });
 
-app.use('/users', (req, res, next) => {
+//app.get
+//app.post
+
+app.post('/users', (req, res, next) => {
   console.log(req.body);
   res.redirect('/');
 });
