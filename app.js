@@ -1,12 +1,10 @@
-const http = require('http');
-
 const express = require('express');
 
 const app = express();
 
 app.use((req, res, next) => {
   console.log('inside middlleware');
-  next(); // allow to travel to the next middleware
+  next();
 })
 
 app.use((req, res, next) => {
@@ -14,9 +12,6 @@ app.use((req, res, next) => {
   res.send('<h1>HEllo from express</h1>')
 })
 
-const server = http.createServer(app);
-
-server.listen(3000)
+app.listen(3000);
 
 
-//npm install --save express
