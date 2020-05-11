@@ -8,6 +8,12 @@ const shopRoutes = require('./routes/shop');
 
 const app = express();
 
+// template engine
+app.set('view engine', 'pug');
+
+// views folder
+app.set('views', 'views');
+
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -19,4 +25,7 @@ app.use((req, res, next) => {
 })
 
 app.listen(3000);
+
+// templating engines
+// npm install ejs pug express-handlebars
 
