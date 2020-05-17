@@ -2,7 +2,6 @@ const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const expressHbr = require('express-handlebars');
 
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
@@ -10,8 +9,7 @@ const shopRoutes = require('./routes/shop');
 const app = express();
 
 // template engine
-app.engine('hbs', expressHbr({layoutsDir: './views/layouts', defaultLayout: 'main-layout', extname: 'hbs'}));
-app.set('view engine', 'hbs');
+app.set('view engine', 'ejs');
 
 // views folder
 app.set('views', 'views');
@@ -23,7 +21,7 @@ app.use('/admin', adminRoutes.routes);
 app.use(shopRoutes);
 
 app.use((req, res, next) => {
-  res.status(404).render('404', {title: 'Page not found pug'});
+  res.status(404).render('404', {title: 'Page not found ejs'});
 })
 
 app.listen(3000);
