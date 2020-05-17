@@ -2,6 +2,7 @@ const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const expressHbr = require('express-handlebars');
 
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
@@ -9,7 +10,8 @@ const shopRoutes = require('./routes/shop');
 const app = express();
 
 // template engine
-app.set('view engine', 'pug');
+app.engine('hbs', expressHbr());
+app.set('view engine', 'hbs');
 
 // views folder
 app.set('views', 'views');
